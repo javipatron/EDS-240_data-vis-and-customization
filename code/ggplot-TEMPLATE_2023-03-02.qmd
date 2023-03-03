@@ -53,6 +53,18 @@ crab_data <- pie_crab %>%
 
 ```{r fig.width = 10, fig.height = 7}
 
+crab_plot1 <- ggplot(crab_data, aes(x = latitude, y = size)) +
+  geom_point(aes(color = site, shape = month),
+             size = 3, alpha = 0.6) +
+  facet_wrap(~month)
+crab_plot1
+
+crab_plot2 <- ggplot(crab_data, aes(x = date, y = size)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+
+crab_plot2
+
 ```
 
 # 3. Customization using `theme()`
